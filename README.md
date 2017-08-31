@@ -106,3 +106,61 @@ Laget verktøy for førere som laster over sine vakter rett over i Google kalend
 Veien videre: Google har et åpent API. Kan man koble ruter med det?
 
 Takk.
+
+## Verktøy og løsninger for effektiv tilgang og analyse av oseanografiske data
+
+Morten Hansen - Nansen Senter
+
+Geo-SPaaS muliggjør raskere utvikling og testing av vitenskapelige algoritmer, som kan bli operasjonell i server-systemer. Nansen Cloud tilbyr forskere verktøy og data i skyen som kan bli tilbudt via NetCDE API
+
+### New opportunities with Open Data and Standards
+
+Policy change - publicly funded data is free and openly avaliable
+New Standards
+
+  * OpenDAP - Allows data streaming, thus "access to pixels instead of images"
+  * INSPIRE, NetCDF-cf, NASA DIF, NASA GCMD keywords, etc.
+
+Nansat is a scientist friendly Python toolbox for processing 2d satellite Earth observation data.
+
+Django-Geo-SPaaS - a GeoDjango app for satellite data management.
+
+### Geo-SPaaS Virtual Machines
+
+Standardized virtual machines configured for given usage - e.g., in projects.
+Vagrant configuration describes all software requirements, packages, operating system configuration, etc.
+
+  * Works on Mac, Linux and Windows ++
+  * Works on your local system with the tools you're familiar with - easily code in your fav text editor.
+
+Standard configuration:
+ * Python /IPython
+ * NumPy
+ * SciPy
+ * GDAL
+ * Nansat
+ * Django-Geo-SPaaS
+
+Nansat defines what a given variable is. GDAL and Nansat coupled gives clear knowledge about what the data is.
+
+### Getting started
+
+1. Open a terminal
+2. git clone https://github.com/nansencenter/geo-spaas-vagrant
+    * Contains vagrantfile with configs for local virtual machines.
+3. vagrant up vm-name and vagrant provision vm-name
+
+ESA GlobCurrent retrieving surface currents from satellites. Jupyter notebook example.|
+
+### Summary and way forward
+Challenges
+
+* The amount of available data from satellites, in-situ measurements and models is big and increasing.
+* Data storage is distributed - "moving processing to the data" is not straight forward.
+
+The Geo-scientific platform as a service shall allow
+ * EAsy access to distributed (external/independent) data catalogues.
+ * Scientist oriented software tools for data analysi
+ * Distributed data storage and access (Geo-SPaaS nodes)
+
+Next step: An API connecting the nodes - to allow common access and data in a cloud.
