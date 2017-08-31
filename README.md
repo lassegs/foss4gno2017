@@ -1,3 +1,5 @@
+# FOSS4G.NO 2017
+
 ## Postgres fast track
 ### big data - small computers
 Lars Opsahl
