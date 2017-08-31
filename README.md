@@ -1,26 +1,30 @@
 # FOSS4G.NO 2017
 
+![](http://i.imgur.com/jn1lNlX.jpg)
+
 ## Postgres fast track
 ### big data - small computers
 Lars Opsahl
-NIBIO
+Norsk Institutt for Bioøkonomi
 
-The reasons to like postgres:
+The reasons to like PostgreSQL
 
-* great support
+Great support
     * Both commercial and online
     * Great documentation
     * Good response(compared with oracle metalink for example)
-* FLexibility: Can you program it, you can do it in postgres.
+* Flexibility: Can you program it, you can do it in postgres.
 * Produce data to clients in the database
 
 ### Big data for me may be small data for you
 
+![](http://i.imgur.com/3s8ZAm8.jpg)
+
 Big data should handle XXXX inserts pr. second?
-375
-10000
-1 mill
-20 mill
+375?
+10000?
+1 mill?
+20 mill?
 
 What is the limit for your system? You should test for performance.
 
@@ -37,12 +41,15 @@ Server should use temporary table for input. Remove indexes. From 310 000 insert
 Drop foreign key constraints: to 1 200 000.
 
 Use unlogged table: from 1 200 000 to 8 000 000.
-Non partitioned table problem. Subtables. Partitioning helps a  lot. Index separate tables. Jump directly to one table.
+
+Non partitioned table problem. Subtables. Partitioning helps a  lot. Index data into separate tables. Jump directly to tables in queries.
 
 23 000 000 decimal numbers inserted per second.
 
+![](http://i.imgur.com/nadMKDs.jpg)
+
 ### Summing up.
-Partitioning on year and month.
+Partitioned data on year and month.
 
 Client fixes, server fixes, partitioned using master, performance drop. Partitioned direct tables, removed keys. Scales pretty well.
 
@@ -57,6 +64,10 @@ Good performance > more possibilties.
 
 Partition data based on geometry. Achieve the same as with year and month.  Problems: Simple feature problems: Distribute borders, same data, same points, in different tables. Postgis topology achieves the solution to this: Scattered data with partitioned tables, get the performance. The real problem is, again, disk space.
 
+This kind of throughput eats SSDs.
+
+
+![](http://i.imgur.com/AGFBDml.jpg)
 
 ## "QGIS - og beregning av overvann m. m."
 
@@ -73,6 +84,9 @@ NVE flomsone WMS.
 Overflatemodell kartverket WMS. Egentlig en fjellskyggemodell med bygninger og vegetasjon.
 NVE årsnedbør.
 
+
+![](http://i.imgur.com/Rx7FoAa.jpg)
+
 Hva finnes av laserdata?  http://høydata.no laserinnsyn.
 
 Når vi laster ned laserdata fra nettet, må vi inkorporere byggdata. Løfte terrengmodellen i 3d, der vi har byggmodellen. De er flatt 10meter. Dermed går ikke vannveiene gjennom bygninger.
@@ -85,8 +99,6 @@ Hvor stort er volumet i vannansamlingene, og dermed hvor mye vann, hvor lang tid
 
 SAGA-modul
 
-
-
 Midlertidig aktsomhetskart. Vise en mulig trussel.
 
 
@@ -95,9 +107,9 @@ Midlertidig aktsomhetskart. Vise en mulig trussel.
 
 Kjører trikk.
 
-Ruter har en åpen data API. Gjør anrop, får tilbake som json.  Når trikken skal komme og når den skal gå. Trafikklederne har inngang rett inn i datasystemene. Som fører er man bare interessert i når trikken en selv skal ha kommer.
+Ruter har en åpen data API. Gjør anrop, får tilbake data som  json.  Når trikken skal komme og når den skal gå. Trafikklederne har inngang rett inn i datasystemene. Som fører er man noen ganger bare interessert i når trikken en selv skal ha kommer.
 
-Laget et web-basert verktøy.
+Laget et web-basert verktøy for å se trikketider på mer tekniske måter, som passer for de ansatte i trikken.
 
 Når trikken må vente pga kjøring på enkeltspor, bruker man sikringsvakt. Hvem slippes igjennom. Da bruker de mitt verktøy.
 
@@ -111,8 +123,9 @@ Takk.
 
 Morten Hansen - Nansen Senter
 
-Geo-SPaaS muliggjør raskere utvikling og testing av vitenskapelige algoritmer, som kan bli operasjonell i server-systemer. Nansen Cloud tilbyr forskere verktøy og data i skyen som kan bli tilbudt via NetCDE API
+Geo-SPaaS muliggjør raskere utvikling og testing av vitenskapelige algoritmer, som kan bli operasjonell i server-systemer. Nansen Cloud tilbyr forskere verktøy og data i skyen som kan bli tilbudt via NetCDE API.
 
+![](http://i.imgur.com/oIcOvEQ.jpg)
 ### New opportunities with Open Data and Standards
 
 Policy change - publicly funded data is free and openly avaliable
@@ -242,6 +255,9 @@ Inn i beregning, summerer til slutt.
 
 Målet er at industrien og aktørene som kan gjøre endringene får dataen inn i seg. De skal inn i fagsystemene til aktørene. De som bygger flåtesystemer skal kunne gjøre utslippsberegninger på en planlagt transport.
 
+
+
+
 ### En oppskrift på lave kostnad
 Om vi regner investering i kunnskap som nyttig.
 Absolutt laveste kostnad er QGIS. Først må folk lære seg å bruke QGIS. Et entrypunkt. Begynner her.
@@ -252,6 +268,9 @@ Python som flufferkode.
 ### QGIS modul ble svaret
 
 Trykke inn punkter i kartet. Så må man vente litt. Ruteforslag genereres av v ruteplan-tjeneste, sparer brukere fra å ha lokale vegnett.
+
+![](http://i.imgur.com/NTOfCOG.jpg)
+
 
 Gir tilbake ruteforslag: Laga sånn at de skal være ganske forskjellige, små avvik gir ikke forskjellige alternativer. Strategivalg: Hvilket dalføre.
 Tast inn biltype og hvilke komponenter du vil beregne, og om du vil ha segment for segment, eller hele kurver.
@@ -480,6 +499,7 @@ AISSat-2 2014
 
 Det ligger informasjon i disse dataene som har større bruksområde enn det som opprinnelig er tenkt.
 
+
 ### ESA JO program siden 70-tallet.
 ESA Earth Observation Programme. Vi betaler kontingent og er med å bestemme hva de skal gjøre.
 
@@ -510,6 +530,9 @@ Sentinel-1 5x20 m hver 6 (1.-2.) dag. Radarbilder over hav og land. Ser endringe
 satellittbilder viser flomområder og kan se om veier står under vann.
 
 Snøskred kan sees med Sentinel-1, siden snø som har ramla har annen ruhet. Search and rescue. Overvåking av rimfrost før snøskredkartlegging. Vi er ikke helt der ennå, men vi jobber mot det.
+
+
+![](http://i.imgur.com/oY59Ieb.jpg)
 
 Isen på Grønland i bevegelse måles.
 
@@ -542,10 +565,161 @@ Bruker SAFE. Snap toolbox kan brukes. Kan lett hentes inn i QGIS
 
 https://colhub.met.no  
 
-NetCDF file format to ensure easier access to smaller dataset and added search functionality such as: area, band (sentinel 2), time, etc. Onthefly conversion to toher file formats and grids (GeoTIFF etc..). Enhanced scripting capabiliteis such as subscription and push. Tools for time-series and change detection. Later... PRocessing on demand "sandbox". Inclusion of future sentinels. 
+NetCDF file format to ensure easier access to smaller dataset and added search functionality such as: area, band (sentinel 2), time, etc. Onthefly conversion to toher file formats and grids (GeoTIFF etc..). Enhanced scripting capabiliteis such as subscription and push. Tools for time-series and change detection. Later... Processing on demand "sandbox". Inclusion of future sentinels.
 
 Innovasjon Norge call:
 http://www.innovasjonnorge.no/satellittdata innen 15. september
 
 ### Kom på Hack4No i oktober
 Vi er der, kommer for å hjelpe folk med å bruke satellittdata
+
+## Hvor går grensen?
+
+Alexander Salveson Nossum
+
+Bordergo. Et prosjekt som kartverket kjører der Norkart er konsulenter og utviklerteam.
+
+Problemstilling:
+ * Eva og Erlend lurer på hvem som eier epletreet.
+ * Lars landmåler skal måle opp eiendommer.
+
+Er dette noe problem da? "Rev halve naboens uthus" Kan bli et problem, særlig når styrelederen kapper et hus i to.
+
+Matrikkel - matrikkel m. (senlat. matricula "liste", diminutiv av matrix "livmor, grunnstamme") offentlig register over grunneiendommer.
+
+Derfor ønsker Kartverket å se på nye metoder og utnytte ny teknologi for å løse dette.
+
+Augmented reality - Google Tango. Se inn i fremtiden, utvikle en prototyp basert på AR på Tango-teknologien. Det sensasjonelle i den er en god del sensorer som ikke vanlig iPhones har. Den har dybdesensor, som en slags lasermåler, men optisk sensor. Du får punktskyer ut av den. Enklere å plassere virtuelle objekter inn i den ekte verden.
+
+![](http://i.imgur.com/pFcz4F2.jpg)
+
+Dette er fremtiden. Kan tas videre til landmålere i fremtiden som går rundt uten GPS-stang og går .
+
+Video fra i dag tidlig i byen. Fungerer ganske bra.
+
+Alt er ikke så enkelt. Drifting, at modellen beveger seg i rommet. Plassering i verdenskoordinater. Vi har geografiske koordinater, projisert. I AR har du AR-koordinatsystemet. GPS-nøyaktigheten er ganske dårlig i mobile enheter som er i dag. Høydemodell, man må ha en god høydemodell inn. Her har vi støtt på et reelt problem relatert til lukkede data. Laserpunktene er publisert. Men de dataene vi trengte var ikke åpne. Så vi måtte lage en annen tjeneste som konverterte de åpne dataene til data vi trengte.
+
+
+Men vi fikser det meste. Rune Aasgard er en av de virkelig gode matteekspertene våre. Lagde en metode for å konvertere tango/AR-koordinater til UTM33N.
+
+GPS-nøyaktighet er vanskelig å fikse. => Støtte for ekstern GPS. Mismatch mellom AR og GPSen i mobile enheter. Løst litt, ikke alt.
+
+*Open sources i oktober på #HACK4NO*
+
+Essensen i open source:
+
+> If I have seen further than others, it is by standing upon the shoulders of giants. - Newton
+
+### What's next?
+
+> ...and, overnight, hundreds of millions of devices...
+
+Apple kom på banen og lanserte sin egen sak. ARKit. Google legger ned Tango og starter ARCore 29. august. Dette kan komme til hundrevis av millioner av enheter.
+
+Microsoft HoloLens og se på katter som flyr i rommet.
+
+FOSS4G-NOR: The G in FOSS4G. Her ser vi nytten av fagfeltet vårt. Skjer mye fra gigantene. De dundrer inn på vårt fagfelt. Men helt motsatt egentlig. Det er vi som klarer å bringe inn de gode metodene inn i deres felt. Geodesi, projeksjonsformler, matematikken i dette, tas inn av de store. Geospatial er minst like viktig framover som det var i går.
+
+
+## It's all about time series observations!
+
+Massimiliano Cannata - Istituto science della Terra
+
+I'm going to talk about a software that has been developed for many years in the southern part of Switzerland. Its for managing time series.
+
+istSOS
+
+![](http://i.imgur.com/DGa6KIa.jpg)
+### Why do we need to monitor?
+Better understand what is the reality and take better decisions. In our case everything started with working with civil protection, with a city close to a lake that flooded time after time. Together with the civil protection we built a system to produce almost in real time flooding maps, and forecasts for the next 6 to 12 hours.
+
+Flooding is not instantanious, so we can predict.
+This is a key aspect for wise decisions. Understand the situtation and timely react.
+Completeness -> quality --> Availability --> Timeliness.
+
+Simple, open, standard, powerful. Had experiences with proprietary software, stuck in lock in.
+
+Watersheds can be international. We wanted to go standard, to make everything interoperable and interchangable.
+
+istSOS is the software: http://www.istsos.org/
+In the incubation process of OSGeo.
+
+### Open architecture
+Based on the principle of a Service Oriented Architecture (SOA) and the specification of Open Geospatial Consortium Sensor Web Enablement (OGC-SWE) initative
+
+SOS user types and sequence. Data consumer can explore the data with GetCapabilites request, get info about the possibilites, the types of data etc. When you understand the data, you can do a DescribeSensor request, to find out what kind of sensor you are looking at. At the end you can perform an GetObservation request, when you want to access the data. You can perform filtering: give me all the data from the last 3 days. OR give me all the data for THIS area for precipitation.
+
+
+istSOS service: istsoslib - database wherehouse  - configuration
+Wa-service: walib
+Interaction: Restful json - wainterface - SOS v1.0 XML.
+
+With istSOS you get the standard and some extended features. We found out that the standard was not enough to manage the timeseries, so we added features.  
+
+Authentication and authorization.
+
+Data aggregation on the fly.
+
+Time zone support, different coordniate systems, different time zones: ask in preferred time zones etc.
+
+ Native quality index, everytime you store data, you have an associated quality index - tests to pass to get a higher quality score - both realtime and post-processing.
+
+ mqtt integrated support - light and reliable - sends data from sensor to a data broker, and further to the data store.  
+
+ Virtual procedure is some sensor for the user that really doesnt exist, but is based on predictions from other sensors.
+
+ JSON, CSV formats for talking to multiple applications.
+
+ GUI for asking and working with the data.
+
+ Notification service.
+
+ Widgets API so you can use this API to build javascript application in Android etc.
+
+ In-situ fixed points and in-situ mobile points.
+
+### Can you trust istSOS?
+
+Configuration for service for Canton Ticino HydroMEt
+
+* 549 registered stations
+* 122 gb of data served
+* 75 Mio served requests in 1 year
+* 1 internal server error response (500)
+
+Developed for 7 years.
+
+![](http://i.imgur.com/KMqAxCF.jpg)
+
+### Bottlenecks
+getCapabilites vs big number of sensors.
+Big concurrent users (>1000) vs server time-out
+Very high frequency data vs Database insertion time.
+
+## FOSS4G Boston oppsummering
+
+Atle Frenvik Sveen
+
+
+Den internasjonale konferansen går verden rundt. FOSS4G er den ledende teknologikonferansen for fagfeltet. Det er som å komme hjem. Gikk over 3 dager, 7 parallelle tracks, og workshops to dager før.
+
+1100 deltakere. Norge på nummer 5, delt 4. plass med tyskland.
+
+Paul Ramsay - PostGIS. The economics of open source. De tre økonomiene i spill. Oppmerksomhetsøkonomien. Pengeøkonomien. Gaveøkonomien. Hvordan samvirker de? Skjebnen til de små grunnleggende åpen kildekodebibliotekene vi bruker: GDAL, proj4 etc. De vedlikeholdes av kanskje en eller to personer. Her bør det gjøres noe. Ligner på Heartbleed i OpenSSL og Google/Faceboo.
+
+![](http://i.imgur.com/1bnziut.jpg)
+
+AI var stor trend om dagen. Eksperimentelt, får til noe, lovende resultater, ikke produksjonsklart.
+
+Vektortiles. Begynner å modnes. Vi har tatt det ibruk. Erfaringer. T-rex, middleware for å generere vektortiles. Gjør det selv i node.
+Native støtte for vektortiles i PostGIS.
+
+Cesium og webnative med 3dtiles osv.
+
+Sky og serverless. Rasterprosessering i lambda osv.
+
+Richard Stallman, gud og far, leverte et show uten like. Det dreier seg ikke bare om fred frihet og alt gratis. Det er også en ideologi.  FOSS4G er mer businessorientert. Teknologikonferanse mer enn friprogkonferanse.
+
+Fake maps: Hvordan kan du misbruke kart.
+
+Litt sosialt: Gala-eventen var på akvariumet i Boston. Med PINGVINER!
