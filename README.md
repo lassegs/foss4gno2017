@@ -164,3 +164,112 @@ The Geo-scientific platform as a service shall allow
  * Distributed data storage and access (Geo-SPaaS nodes)
 
 Next step: An API connecting the nodes - to allow common access and data in a cloud.
+
+
+## Barents Sea Marine Atlas
+
+Endre Moen
+Norsk Marint Datasenter - Havforskningsinstituttet
+
+Cirka 700 ansatte.
+
+BarMar inneholder data om fisk. Oseanografiske data. Aggregerte data, basert på rådata fra forskningstokt og fiskeri. Blir presentert i et rutenett på 25x25 km.
+
+Brukere kan filtrere fisk lengde- og alders-intervaller, eller kjønn.
+
+Hvor kommer dataene fra? Data-fangst fra forskningstokt og fiskeri fra Norge og Russland. Analyse av forskere, med gridding, aggregering, en slags interpolering. VIsualisering, aggregering på nytt. BarMar. Tilsammen blir det oversikt over økosystemene i barentshavet.
+
+BarMar kan legges oppå hverandre. Sender spørring til GeoServer, lager SQL-spørring til PostGIS DB, får data tilbake, gjør til WMS, som sendes til klient.
+
+På sikt er det et mål at våre data skal være tilgjengelig for nedlasting.
+BarMar skal være brukervennlig og ikke gå på for detaljert nivå.
+
+barmar.nodc.no/BarMar/barmar.html
+
+### Veien videre
+Laste ned datagrunnlag for kartene.
+Flere datasett: Sild, makrell, blåkveite og saltholdighet, temperatur.
+
+Bra på å svare på romlige spørsmål
+Ikke bra på å svare på ikke-romlige spørsmål.
+
+sjømil: http://www.imr.no/sjomil/index.html
+
+
+BarMar
+Laget med OpenLayers 3, Java, GeoServer og PostGIS.
+
+
+
+## Utvikling med Open Source GIS i Statens Vegvesen
+
+Thomas Levin - Statens Vegvesen
+
+Noen tanker fra en FoU seksjon.
+
+Kobling mellom geodata og trafikkflyt. Svært proprietær etat. Betalt utvikling hos leverandører, proprietære formater etc.. Begynt å ta tak i det, frigjør data.
+
+### Utfordringer på lang sikringsvakt
+
+Hovedmål
+* Framkommelighet og regional utvikling
+* Trafikksikkerhet
+* Miljø
+* Universell utforming
+
+Blir målt og skal bli bedre. Håndtere større samfunnsendring og se konturene av selvkjørende kjøretøy og det grønne skiftet.
+
+Fokus i dag ligger på miljøbetraktninger.
+
+### Svare på enkle spørsmål
+
+Hvor mye diesel bruker jeg over fjellet til Oslo
+(produksjon i distriktene)
+
+Det er sammenfall mellom miljø og bedriftsøkonomi for næringstransporten.
+ - 1 kilo NOx, gir ingen mening, mens 1 liter diesel gjør det.
+ - Det finnes mye data om transportene på vegene i Norge
+ - EU-systemet produserer mye bra data i "papirform". Utslippsfaktorer f. x. Excelark, kolonner endrer seg, hver gang de oppdaterer.
+ - SVV har en unik database med fagdata som er "flytende"
+
+https://www.vegvesen.no/vegkart/vegkart - enkelt å bruker
+
+NVDB har all fagdata.  Ruteberegning + offentlig API
+
+EEA Guide book PDF + Excel . Bygger pythonkode, åpent bibliotek, for å interpolere dataene og gi ut i "flytende" form.
+Legge inn data om kjøretøy, fra, til, last.
+Inn i beregning, summerer til slutt.
+
+Målet er at industrien og aktørene som kan gjøre endringene får dataen inn i seg. De skal inn i fagsystemene til aktørene. De som bygger flåtesystemer skal kunne gjøre utslippsberegninger på en planlagt transport.
+
+### En oppskrift på lave kostnad
+Om vi regner investering i kunnskap som nyttig.
+Absolutt laveste kostnad er QGIS. Først må folk lære seg å bruke QGIS. Et entrypunkt. Begynner her.
+Fagdata fra NVDB.
+Ruteplanlegger.
+Python som flufferkode.
+
+### QGIS modul ble svaret
+
+Trykke inn punkter i kartet. Så må man vente litt. Ruteforslag genereres av v ruteplan-tjeneste, sparer brukere fra å ha lokale vegnett.
+
+Gir tilbake ruteforslag: Laga sånn at de skal være ganske forskjellige, små avvik gir ikke forskjellige alternativer. Strategivalg: Hvilket dalføre.
+Tast inn biltype og hvilke komponenter du vil beregne, og om du vil ha segment for segment, eller hele kurver.
+
+Målet etterhvert er å berike de lagene du får med enda flere data fra NVDB.
+
+Vi kjører open source utvikling!
+
+https://github.com/NPRA/RoadEmissionCalculator
+
+Vi har prosesser på gang for å videreutvikle våre backend tjenester til å gi et enda bedre grunnlag for utslippsberegninger.
+
+Når vi bruker data finner vi også feil - det er en bra ting.
+
+Hovedkilde:
+
+www.vegvesen.no/data
+https://github.com/LtGlahn
+https://github.com/NPRA
+
+Sysler også med open hardware og gjør bremsetester på blåis. 
