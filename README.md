@@ -272,4 +272,172 @@ www.vegvesen.no/data
 https://github.com/LtGlahn
 https://github.com/NPRA
 
-Sysler også med open hardware og gjør bremsetester på blåis. 
+Sysler også med open hardware og gjør bremsetester på blåis.
+
+
+
+## Geoforum
+Interesseorganisasjon for alle som jobber med geomatikk. Synliggjøring av geomatikere. Kompetanseheving blant medlemmer. Fagpolitisk virksomhet.  Inviteres til stortinget, ift. digital agenda. Cirka 2000 medlemmer. Medlemsfordeler er rabatter på kurs og konferanser, pluss stipender.
+
+
+## Det åpne geodata-økosystemet
+
+Atle Frenvik Sveen
+
+Basert på en artikkel. http://www.kartogplan.no/Artikler/KP2-2017/Det%20aapne%20geodata%20oekosystemet.pdf
+
+### Hva er åpne data?
+Åpen lisens
+tilgjengelig - kan godt ta betalt for å levere dataen.
+Maskinlesbart - papirutskrift ikke lov.
+Åpent format - minst ett open source bibliotek for å lese og behandle
+
+### Farer?
+* Tolkning - Mine data, fagdata, trenger ekspertise for å tolke. Veiledere
+* Ondsinnet distribusjon - modifiserer dataen av idioti og onde hensikter og får feil data i omløp.
+* Selektivitet - åpne enkelte deler av data for å fremme en sak.
+
+Alle data kan ha feil og har bias osv.
+
+### Åpne Geodata
+Nei, ikke selskapet.
+
+Åpne geodata er et subset av åpne data.
+
+Is spatial special? Ja. Egne miljøer, forskjellig lovgivning, og forskjellige formater. Noen av disse tingene gjør det spesielt.
+
+Vi har data.norge.no og data.kartverket.no. Vi liker å tro at vi er spesielle.
+
+### Data fra det offentlige
+32 - 174 millioner i mulig verdiskapning?
+
+Global Open Data index er et prosjket som tracker status på åpning av data over hele verden. 4 av 15 kategorier er geografiske data.
+
+Norge er helt grønt selvom FKB ikke er åpent.
+
+To hovedbeveggrunner for å åpne data:
+
+Kapitalistisk: Ved å åpne data åpner vi for verdiskapning
+Sosialistisk: Ved å åpne data åpner vi regjering, styring, transparancy.
+
+I USA er det den sosialistiske argumentasjonen som vektlegges.
+I Europa er det den kapitalistiske beveggrunnen som er viktig.
+
+### Innovation at gunpoint
+
+> "Nå er det en måned siden Kartverket slapp gratisdata, hvor er resultatene?"
+> Thomas Nrodtvedt, FAD (fritt etter hukommelsen)
+
+> "Det å forvente at det sitter en haug nerder og hopper når staten sier "Hopp", som hiver seg over de nye dataene, er utopisk".
+> Atle Frenvik Sveen
+
+Kartverket er flinke. Hack4.no for eksempel er kjempebra. Fornuftig og må gjøres mer av.
+
+### VGI
+
+Relatert til åpne data. Kroneksempelet er OpenStreetMap. Begynner å bli veldig bra. En rekke kilder inn. Tracker med GPS. Tracer satelittbilder. ESRI, Bing, Mapbox. Legger inn åpningstider osv. Mikser inn offentlige geografiske data. Jobber med å få inn N50-data, allerede lagt inn adressedataene. Dataene her har en åpen lisens
+
+Hva skjer når det skjer endringer i de offentlige dataene? Hvordan tracker du det? Vet ikke, finn ut og bli rik.
+
+Kartverket rett i kartet-tjenesten har cirka det samme.
+
+### Symbiose
+
+En samvirkning mellom VGI og offentlige data. Eksempel fra NY som føllger med på alle endringer i OpenStreetMap. Når det har skjedd endringer i OSM, sendes det en mail til offentlig etat for å endre sine datasett.
+
+### FOSS(4G)
+
+Same same, but different.
+
+RMS: Kode skal være åpent, ellers er det malware.
+
+Ikke alle data bør være åpent, pga personvern og sånn. Men mye av inspirasjonen er hentet fra friprogbevegelsen. Kanskje open data er mer som open source.
+
+
+### Hacker cartography
+
+Bruker OS-verktøy med åpne data for å lage og bearbeide crowdsourced, vgi osv.
+
+Mapnik er et godt eksempel. En kartrenderer. Laget for OpenStreetMap, men nå tatt av generelt.
+
+Google, Microsoft, Facebook er blant de største bidragsyterne til friprog.
+
+Samme for VGI. Mapbox har et stort team av folk som forbedrer OpenStreetMap.
+
+
+### Fremtiden?
+
+Profesjonallisering av de som publiserer sine data. Det å legge til rette for bruk av dataene, være til stede, ha tutorials, forklare hvordan det brukes.
+
+Mer åpenhet, fanden vil ha fler. Flere data i det åpne.
+
+Større krav fra brukere om regelmessige oppdateringsfrekvenser. Klarere lisenser (OpenStreetMap fra CC til ODbL).
+
+
+## From the field to web and reports. Efficient data flows with QGIS and PostGIS.
+
+Jakob Misch
+
+### NOFA - Nordic Freshwater Atlas
+* Data infrastructure for Freshwater species.
+    * Collection
+    * Analysis
+    * Preservation
+    * Presentation
+    * Publication
+* Long terminal
+* Workflow efficient.
+
+Everything open source from OSGeo projects. OSGeo projects are stable, and there in 5 years.
+
+Input: QGIS, Lizmap, BASH, python.
+NOFA: Store: PostGIS. Process: PostGIS, R, GrassGIS, Python.
+Publishing: R, shiny, QGIS, Lizmap   --> web
+
+### Darwin core
+International standard for species occurrence data. Data structure. Defined terms. Controlled vocabulary. Metadata.
+
+Researchers from all over the world collaborate with this.
+
+A schema i Postgresql:
+1. Location Location type, waterbody, county, municipality, elevation, geometry, ...
+2. Event: location, remarks, recorded by, date, reliability, dataset, ...
+3. Occurence: event, species, remarks, ....
+
+### Additional data
+Lakes 1.5 million in Norway, Swedn and Finland.
+Catchments: 270 000 largest lakes.  Grass GIS is a powerfull, although resource hungry operation. Where the water comes from.
+Rivers
+Streets
+Land cover
+Climate
+Terrain models
+Administrative units
+
+All are available in the system
+
+### Visualisation and print plugins
+QGIS plugin
+
+Another option is QGIS server, Lizmap WMS, WFS.
+
+R shiny, web applications using the R programming language.
+https://shiny.vm.ntnu.no/users/andersfi/invafish/
+
+### Insert and edit data
+* Field data collection:
+* QField (Android) - QGIS with less functions and another UI
+* QGIS (Windows tablet) - full version
+* IntraMaps Roam (Windows Tablet) - QGIS based.
+* Lizmap (Web browser)
+* OpenDataKit
+* GeoShapes - Full platform with client and server
+* ...
+
+### Desktop: QGIS plugins
+Motivation:
+
+ * QGIS - PostGIS Layer
+ * Scripts
+
+Standard installation, with map canvas interaction. It's not released yet.
