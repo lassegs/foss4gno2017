@@ -335,7 +335,7 @@ Kartverket er flinke. Hack4.no for eksempel er kjempebra. Fornuftig og må gjør
 
 ### VGI
 
-Relatert til åpne data. Kroneksempelet er OpenStreetMap. Begynner å bli veldig bra. En rekke kilder inn. Tracker med GPS. Tracer satelittbilder. ESRI, Bing, Mapbox. Legger inn åpningstider osv. Mikser inn offentlige geografiske data. Jobber med å få inn N50-data, allerede lagt inn adressedataene. Dataene her har en åpen lisens
+Relatert til åpne data. Kroneksempelet er OpenStreetMap. Begynner å bli veldig bra. En rekke kilder inn. Tracker med GPS. Tracer satellittbilder. ESRI, Bing, Mapbox. Legger inn åpningstider osv. Mikser inn offentlige geografiske data. Jobber med å få inn N50-data, allerede lagt inn adressedataene. Dataene her har en åpen lisens
 
 Hva skjer når det skjer endringer i de offentlige dataene? Hvordan tracker du det? Vet ikke, finn ut og bli rik.
 
@@ -377,6 +377,7 @@ Større krav fra brukere om regelmessige oppdateringsfrekvenser. Klarere lisense
 ## From the field to web and reports. Efficient data flows with QGIS and PostGIS.
 
 Jakob Misch
+http://nina.no/
 
 ### NOFA - Nordic Freshwater Atlas
 * Data infrastructure for Freshwater species.
@@ -391,8 +392,9 @@ Jakob Misch
 Everything open source from OSGeo projects. OSGeo projects are stable, and there in 5 years.
 
 Input: QGIS, Lizmap, BASH, python.
-NOFA: Store: PostGIS. Process: PostGIS, R, GrassGIS, Python.
+NOFA: Store: PostGIS ( fish occurences, environmental factors). Process: PostGIS, R, GrassGIS, Python.
 Publishing: R, shiny, QGIS, Lizmap   --> web
+Share: QGIS, R, Python
 
 ### Darwin core
 International standard for species occurrence data. Data structure. Defined terms. Controlled vocabulary. Metadata.
@@ -441,3 +443,109 @@ Motivation:
  * Scripts
 
 Standard installation, with map canvas interaction. It's not released yet.
+
+### Lizmap
+
+http://tinyurl.com/Insertfish
+Autmatically inserted into the postgres database.
+
+### Analyze data
+
+PostGIS processing. Most GIS functionality can be done directly in the database. Very fast, easy for the user. Postgres supports python as well as SQL.Create triggers, quality checks,
+
+Also to calculate the distance to the closest road. How likely is it that humans tamper with the lake or not. Important for biologists. How close are different occurences? Linear in Postgres, river routing with pgRouting.
+
+Server side
+
+### R - Programming language
+Predefined functions - process on the Server
+Download data "views" - by species, by event.
+
+
+
+## Copernicus-programmet og åpenhet
+
+Anja Strømme - Norsk Romsenter
+
+Om satellittdata og bruk i GIS-applikasjoner. Ny datakilde, satellittbilder er ikke nytt, åpenheten er det. Hvordan ser vi for oss dette blir brukt.
+
+### Norsk Romsenter
+Under næringsdepartementet. Forvalter norske rominteresser, også i ESA. Strategisk rådgiver og utreder for norsk forvaltning i romrelaterte saker. 40 ansatte på Skøyen i Oslo. Budsjett ca en milliard.
+
+Hvorfor er rommet viktig for Norge? Vi ligger langt nord. Mange satellitter går i polare baner, og dekker Norge dermed veldig godt. Norge er et stort land og forvalter enorme havområder. Vi har ansvar for sikkerhet, is, search and rescue, fisk osv. Å bruke satellitter til den store overvåkinga, sende ut folk der det trengs. Vi har store behov, og er derfor også veldig store brukere av satellitter.
+
+Vi har noen norske satellitter
+AISSat-1 2010
+AISSat-2 2014
+
+Det ligger informasjon i disse dataene som har større bruksområde enn det som opprinnelig er tenkt.
+
+### ESA JO program siden 70-tallet.
+ESA Earth Observation Programme. Vi betaler kontingent og er med å bestemme hva de skal gjøre.
+
+De meteorologiske innerst. Så er det Earth Explorers, til forskning. Copernicus-programmet tar suksessene herfra og skyter opp nye generasjoner med disse. Da kan vi begynne å planlegge ordentlig hva vi vil gjøre, fordi de er ikke bare 6 år og så faller ned, men vil være der operasjonelt over tid.
+
+### Copernicus fra forskning til forvaltning.
+
+Europes eye on earth.
+
+* Dedikerte sentinel satellitter
+* Tilgang til data fra andre satellitter
+* Data fra bakken/droner/fly (in situ komponenten)
+* 6 tjeenster
+
+Vi er på vei inn i en ny tidsregning hvor langvarige, kontinuerlige, åplitelige og uniforme jordobservajsons dataserier vil øke og føre til en stor oppgang i produkter og tjenester.
+
+Åpne data er sosialisme og kapitalisme. ja takk, begge deler. Det er ekstremt mye det kan brukes til. Vi trenger de dyktige innovatørene for å drive sosialismen videre og vica versa.
+
+Volume of user downloads: 27.12 petabyte.
+
+Sentinel 1 - SAR imaging. Radar. 100 minutter rundt jorda, 45 minutter fra hverandre. Weather, day night, interferometry
+Sentinel 2 - Multi-spectral imaging. Land applications: urban, forest, agriculture.
+Sentinel 3 - ocean and global land monitoring. Wide swatch ocean color, vegetation, sea/land surface temperature, altimetry
+Sentinel 4 - Geostationary atmospheric
+
+Sentinel-1 5x20 m hver 6 (1.-2.) dag. Radarbilder over hav og land. Ser endringer i ruhet på hav og land. Værfronter i hvor regnet har trykket ned havet. Kan brukes over land også. Snøtemperatur, hvor store snøkorn er, vanninnholdet. Blir det flom i år, hvordan skal vi forvalte vannmagasinene etc.
+
+satellittbilder viser flomområder og kan se om veier står under vann.
+
+Snøskred kan sees med Sentinel-1, siden snø som har ramla har annen ruhet. Search and rescue. Overvåking av rimfrost før snøskredkartlegging. Vi er ikke helt der ennå, men vi jobber mot det.
+
+Isen på Grønland i bevegelse måles.
+
+Norwegian centre for deformation mapping (2016 ->)
+Bruker infromasjon fra fasen i signal for å se om bakken har flyttet seg med millimeter. Operational + nationwide. Kommer til å legge ut dette for alle som frie og åpne data. Jordskred
+
+Visualisering av setning og feil i jernbanen. Kan bestemme hvor man skal dra og fikse før det skjer feil.
+
+Setning generelt er interessant for forsikringsbransjen.
+
+### Sentinel 2 optisk satellitt.
+
+KAn brukes til beskyttede områder, biodiversitet, land cover, skog helse, avskoging. Klima relatert endring i vegetasjon og isbreer. Innsjøer og elver. Pollenvarsel.
+
+Har 12 farger. Kan kombinere bånd for å få forskjellige visualiseringer.
+
+### https://satellittdata.no Den nye portalen for Copernicus data
+Du gjør hva du vil med de dataene. Tjen penger, redd verden.
+
+Bygger opp en nasjonal infrastruktur. Tilbyr data fra hele verden, som ferskvare.
+
+200 terrabyte skiftes ut hver uke.
+
+ satellittbilder fra Sentinel 2 over Norge hver femte dag. Mye skyer da.
+
+
+### DHuS portalen
+
+Bruker SAFE. Snap toolbox kan brukes. Kan lett hentes inn i QGIS
+
+https://colhub.met.no  
+
+NetCDF file format to ensure easier access to smaller dataset and added search functionality such as: area, band (sentinel 2), time, etc. Onthefly conversion to toher file formats and grids (GeoTIFF etc..). Enhanced scripting capabiliteis such as subscription and push. Tools for time-series and change detection. Later... PRocessing on demand "sandbox". Inclusion of future sentinels. 
+
+Innovasjon Norge call:
+http://www.innovasjonnorge.no/satellittdata innen 15. september
+
+### Kom på Hack4No i oktober
+Vi er der, kommer for å hjelpe folk med å bruke satellittdata
