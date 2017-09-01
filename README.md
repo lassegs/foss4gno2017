@@ -10,9 +10,10 @@ Norsk Institutt for Bioøkonomi
 The reasons to like PostgreSQL
 
 Great support
-    * Both commercial and online
-    * Great documentation
-    * Good response(compared with oracle metalink for example)
+
+* Both commercial and online
+* Great documentation
+* Good response(compared with oracle metalink for example)
 * Flexibility: Can you program it, you can do it in postgres.
 * Produce data to clients in the database
 
@@ -28,7 +29,7 @@ Big data should handle XXXX inserts pr. second?
 
 What is the limit for your system? You should test for performance.
 
-What does 300 000 000 000 decimal numbers mean? 2044. This is the data you'll be finished when your system handles 375 inserts/sec.
+What does 300 000 000 000 decimal numbers mean? 2044. This is the year you'll be finished when your system handles 375 inserts/sec.
 
 Client test tools. Scripts. copy(postgres), cat, split, sed, time... Easy to do, document, test.
 
